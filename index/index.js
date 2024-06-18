@@ -11,7 +11,8 @@ if (urlParams.has("path"))
     for (let i = 0; i < path.length - 1; ++i)
         workspace += `/${path[i]}`;
     
-    fetch("../Note/SG/SG.md")
+    // fetch("../Notes/SG/SG.md")
+    fetch(`${workspace}/${path[path.length - 1]}.md`)
     .then((res) => {
         return res.text()
     })

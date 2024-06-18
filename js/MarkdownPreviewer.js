@@ -49,8 +49,11 @@ class MarkdownPreviewer
         {
             console.log(workspace)
             document.querySelectorAll(".markdown-previewer-body img").forEach((img) => {
-                let imgFilename = img.src.substring(img.src.lastIndexOf('/') + 1);
-                img.src = workspace + '/' + imgFilename;
+                if (!img.src.includes("https"))
+                {
+                    let imgFilename = img.src.substring(img.src.lastIndexOf('/') + 1);
+                    img.src = workspace + '/' + imgFilename;
+                }
             });
         }
     };
